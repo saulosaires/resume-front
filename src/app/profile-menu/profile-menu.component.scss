@@ -1,0 +1,32 @@
+
+
+
+img{
+  max-width: 100%;
+}
+.card-wrapper{
+  padding: 16px;
+}
+
+.card-custom{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  max-width: 800px;
+  /* border: 2px solid gray; */
+
+}
+
+.card-description{
+  width: 68%;
+  padding: 10px;
+}
+
+.card-description h3{
+  margin: 0 0 0;
+}
+
+.card-image{
+  width: 28%;
+  max-width: 150px;
+}

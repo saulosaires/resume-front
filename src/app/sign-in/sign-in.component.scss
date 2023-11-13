@@ -1,0 +1,26 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.sign-in-btn{
+  padding: 5px;
+}
+
+mat-card {
+  width: 400px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+

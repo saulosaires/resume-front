@@ -1,0 +1,13 @@
+.form-sign-up {
+  width: 800px !important;
+  padding: 1rem;
+}
+
+.form-sign-up .form-floating:focus-within {
+  z-index: 2;
+}
+
+
+.full-width {
+  width: 100%;
+}
