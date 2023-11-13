@@ -31,7 +31,7 @@ export class UserService {
     }
 
     update(user: User): Observable<User> {
-        return this.http.put<User>(this.path , user, this.httpOptions)
+        return this.http.put<User>(this.path, user, this.httpOptions)
             .pipe(
                 tap(_ => console.log('userService.update'))
             );

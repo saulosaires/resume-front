@@ -10,7 +10,7 @@ export class User {
     instantMessaging: string
     birthDate: Date;
     photoUrl: string;
-    country: Country=new Country();
+    country: Country = new Country();
 
 
 }

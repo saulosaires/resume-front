@@ -1,20 +1,18 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {User} from "../model/user";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
+
+    public user = new BehaviorSubject<any>({
+        user: undefined
+    })
 
     constructor() {
 
     }
-
-  public user = new BehaviorSubject<any>({
-    user: undefined
-  })
-
 
 
 }

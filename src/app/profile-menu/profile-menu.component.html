@@ -1,29 +1,29 @@
 <div class="card-wrapper">
-  <div class="card-custom">
-    <div class="card-image">
-      <img class="card-img rounded-circle" mat-card-image referrerpolicy="no-referrer"
-           src="{{ user.photoUrl }}">
+    <div class="card-custom">
+        <div class="card-image">
+            <img class="card-img rounded-circle" mat-card-image referrerpolicy="no-referrer"
+                 src="{{ user.photoUrl }}">
+        </div>
+        <div class="card-description">
+            <h3 class="card-title text-success">{{user.name}}</h3>
+            <h5 class="card-title text-secondary">{{user.email}}</h5>
+        </div>
     </div>
-    <div class="card-description">
-      <h3 class="card-title text-success">{{user.name}}</h3>
-      <h5 class="card-title text-secondary">{{user.email}}</h5>
-    </div>
-  </div>
 </div>
 
 <mat-divider></mat-divider>
 
 <button (click)="dashboard()" mat-menu-item>
-  <mat-icon>dashboard</mat-icon>
-  <span>Dashboard</span>
+    <mat-icon>dashboard</mat-icon>
+    <span>Dashboard</span>
 </button>
 
 <button (click)="profile()" mat-menu-item>
-  <mat-icon>person</mat-icon>
-  <span>Profile</span>
+    <mat-icon>person</mat-icon>
+    <span>Profile</span>
 </button>
 
 <button (click)="signOut()" mat-menu-item>
-  <mat-icon>logout</mat-icon>
-  <span>Log out</span>
+    <mat-icon>logout</mat-icon>
+    <span>Log out</span>
 </button>

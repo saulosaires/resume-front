@@ -12,7 +12,7 @@
 }
 
 
-#avatar-btn{
+#avatar-btn {
   background: none;
   border: none;
   outline: none;
@@ -23,19 +23,13 @@
 }
 
 
-#avatar-img{
+#avatar-img {
   cursor: pointer;
   margin: 0 8px;
   border-radius: 50%;
   background-color: transparent;
   overflow: hidden;
 }
-
-
-
-
-
-
 
 
 .bd-placeholder-img {
@@ -114,9 +108,11 @@
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+
 .form-control-dark {
   border-color: var(--bs-gray);
 }
+
 .form-control-dark:focus {
   border-color: #fff;
   box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
