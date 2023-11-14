@@ -21,17 +21,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatAccordion, MatExpansionModule} from '@angular/material/expansion';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ProfileMenuComponent} from './profile-menu/profile-menu.component';
 import {ProfileComponent} from './profile/profile.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SnackBarInterceptor} from "./interceptor/snack-bar-interceptor";
 import {SignInComponent} from './sign-in/sign-in.component';
 import {NgOptimizedImage} from "@angular/common";
 import {ProfilePersonalDetailsComponent} from './profile/profile-personal-details/profile-personal-details.component';
+import { ProfileEmploymentHistoryComponent } from './profile/profile-employment-history/profile-employment-history.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +41,8 @@ import {ProfilePersonalDetailsComponent} from './profile/profile-personal-detail
         ProfileMenuComponent,
         ProfileComponent,
         SignInComponent,
-        ProfilePersonalDetailsComponent
+        ProfilePersonalDetailsComponent,
+        ProfileEmploymentHistoryComponent
     ],
     imports: [
         HttpClientModule,
@@ -62,7 +65,9 @@ import {ProfilePersonalDetailsComponent} from './profile/profile-personal-detail
         MatSnackBarModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        MatExpansionModule,
+        ReactiveFormsModule
 
     ],
     providers: [{

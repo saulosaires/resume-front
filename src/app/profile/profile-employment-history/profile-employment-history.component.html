@@ -1,0 +1,71 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Employment History</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>profile-employment-history works!</p>
+        <mat-accordion class="example-headers-align" multi>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Personal data
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type your name and age
+                        <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <form>
+                    <table class="full-width">
+                        <tr>
+                            <td>
+                                <mat-form-field class="full-width">
+                                    <mat-label>Job title</mat-label>
+                                    <input matInput name="job-title" placeholder="Engineer" type="text">
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field class="full-width">
+                                    <mat-label>Employer</mat-label>
+                                    <input matInput name="employer"
+                                           placeholder="Nasa" type="text">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="full-width">
+                                    <mat-label>First campaign</mat-label>
+                                    <mat-date-range-input
+                                            [formGroup]="campaignOne"
+                                            [rangePicker]="campaignOnePicker"
+                                            [comparisonStart]="start"
+                                            [comparisonEnd]="end">
+                                        <input matStartDate placeholder="Start date" formControlName="start">
+                                        <input matEndDate placeholder="End date" formControlName="end">
+                                    </mat-date-range-input>
+                                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+                                    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field class="full-width">
+                                    <mat-label>Url</mat-label>
+                                    <input matInput name="url"
+                                           placeholder="site.com" type="url">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+
+
+                    </table>
+                </form>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+    </mat-card-content>
+</mat-card>
