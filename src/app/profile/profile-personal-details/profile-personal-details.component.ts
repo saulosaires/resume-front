@@ -7,54 +7,61 @@ import {UserService} from "../../service/user/user.service";
 import {AuthService} from "../../service/auth-service";
 
 @Component({
-    selector: 'app-profile-personal-details',
-    templateUrl: './profile-personal-details.component.html',
-    styleUrls: ['./profile-personal-details.component.scss']
+  selector: 'app-profile-personal-details',
+  templateUrl: './profile-personal-details.component.html',
+  styleUrls: ['./profile-personal-details.component.scss']
 })
 export class ProfilePersonalDetailsComponent implements OnInit {
 
-    user: User;
-    country: Country;
-    countries: Country[] = [];
+  user: User;
+  countries: Country[] = [];
 
-    constructor(private _snackBar: MatSnackBar,
-                private countryService: CountryService,
-                private userService: UserService,
-                private authService: AuthService) {
+  constructor(private _snackBar: MatSnackBar,
+              private countryService: CountryService,
+              private userService: UserService,
+              private authService: AuthService) {
 
-        this.user = new User();
-        this.country = new Country();
-    }
+    this.user = new User();
+    this.user.country = new Country();
+  }
 
-    ngOnInit() {
-        this.getCountries();
-        this.authService.user.subscribe(user => {
-            this.user = user;
-            this.country = this.user.country;
-        });
-    }
+  ngOnInit() {
+    this.getCountries();
 
-    update() {
-        this.userService.update(this.user).subscribe(
-            userUpdated => {
-                console.log(userUpdated);
-                this.openSnackBar('User data update');
-            });
-    }
+    this.authService.user.subscribe(user => {
+      this.user = user;
+    });
+  }
 
-    getCountries(): void {
-        this.countryService.getCountries()
-            .subscribe(countries => this.countries = countries);
-    }
+  update() {
+    this.userService.update(this.user).subscribe(
+      userUpdated => {
+        console.log(userUpdated);
+        //this.openSnackBar('User data update');
+      });
+  }
 
-    openSnackBar(msg: string) {
+  getCountries(): void {
+    this.countryService.getCountries()
+      .subscribe(countries => this.countries = countries);
+  }
 
-        this._snackBar.open(msg, 'close', {
-            duration: 3 * 1000
-        });
+  openSnackBar(msg: string) {
+
+    this._snackBar.open(msg, 'close', {
+      duration: 3 * 1000
+    });
 
 
-    }
+  }
 
+  change() {
+    this.update();
+  }
+
+  changeCountry() {
+    this.user.country = this.countries.filter(c => c.id === this.user.country.id)[0];
+    this.update();
+  }
 
 }

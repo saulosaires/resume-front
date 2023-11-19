@@ -28,9 +28,11 @@ export class AppComponent implements OnInit {
             user.name = socialUser.name;
             user.email = socialUser.email;
             user.photoUrl = socialUser.photoUrl;
-
+            console.log(socialUser);
             this.userService.signIn(user).subscribe(userSignIn => {
-                this.user = userSignIn;
+              console.log(userSignIn);
+
+              this.user = userSignIn;
                 this.loggedIn = (userSignIn != null);
                 this.authService.user.next(userSignIn);
             });

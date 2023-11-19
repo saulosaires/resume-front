@@ -10,14 +10,14 @@
                         <mat-form-field class="full-width">
                             <mat-label>Name</mat-label>
                             <input [(ngModel)]="user.name" id="user-name" matInput name="user-name"
-                                   placeholder="Name" type="text"  >
+                                   placeholder="Name" type="text" (change)="change()" >
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="full-width">
                             <mat-label>Telephone</mat-label>
                             <input [(ngModel)]="user.telephone" id="user-telephone" matInput name="user-telephone"
-                                   placeholder="+1123456789" type="tel">
+                                   placeholder="+1123456789" type="tel" (change)="change()" >
                         </mat-form-field>
                     </td>
                 </tr>
@@ -26,14 +26,14 @@
                         <mat-form-field class="full-width">
                             <mat-label>Website</mat-label>
                             <input [(ngModel)]="user.website" id="user-website" matInput name="user-website"
-                                   placeholder="me.com" type="url">
+                                   placeholder="me.com" type="url" (change)="change()" >
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="full-width" color="accent">
                             <mat-label>Birth Date</mat-label>
                             <input [(ngModel)]="user.birthDate" [matDatepicker]="pickerUserBirthDate" matInput
-                                   name="user-birth-date">
+                                   name="user-birth-date" (change)="change()" >
                             <mat-hint>MM/DD/YYYY</mat-hint>
                             <mat-datepicker-toggle [for]="pickerUserBirthDate"
                                                    matIconSuffix></mat-datepicker-toggle>
@@ -46,12 +46,13 @@
             <p>
                 <mat-form-field class="full-width">
                     <mat-label>Country</mat-label>
-                    <mat-select [(ngModel)]="country.id" name="user-country">
-                        <mat-option *ngFor="let country of countries" [value]="country.id">
+                    <mat-select [(ngModel)]="user.country.id" name="user-country" (ngModelChange)="changeCountry()">
+                        <mat-option *ngFor="let country of countries" [value]="country.id" >
                             {{country.name}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+
                 <mat-form-field class="full-width">
                     <mat-label>Summary</mat-label>
                     <textarea [(ngModel)]="user.summary" id="user-summary" matInput
