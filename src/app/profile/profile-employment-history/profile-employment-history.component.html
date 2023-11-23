@@ -1,71 +1,108 @@
+
+
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>Employment History</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <p>profile-employment-history works!</p>
-        <mat-accordion class="example-headers-align" multi>
+  <mat-card-header>
+    <mat-card-title>Employment History</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
 
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Personal data
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        Type your name and age
-                        <mat-icon>account_circle</mat-icon>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
+    <div *ngFor="let exp of experiences">
 
-                <form>
-                    <table class="full-width">
-                        <tr>
-                            <td>
-                                <mat-form-field class="full-width">
-                                    <mat-label>Job title</mat-label>
-                                    <input matInput name="job-title" placeholder="Engineer" type="text">
-                                </mat-form-field>
-                            </td>
-                            <td>
-                                <mat-form-field class="full-width">
-                                    <mat-label>Employer</mat-label>
-                                    <input matInput name="employer"
-                                           placeholder="Nasa" type="text">
-                                </mat-form-field>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <mat-form-field class="full-width">
-                                    <mat-label>First campaign</mat-label>
-                                    <mat-date-range-input
-                                            [formGroup]="campaignOne"
-                                            [rangePicker]="campaignOnePicker"
-                                            [comparisonStart]="start"
-                                            [comparisonEnd]="end">
-                                        <input matStartDate placeholder="Start date" formControlName="start">
-                                        <input matEndDate placeholder="End date" formControlName="end">
-                                    </mat-date-range-input>
-                                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-                                    <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
-                                    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
-                                </mat-form-field>
-                            </td>
-                            <td>
-                                <mat-form-field class="full-width">
-                                    <mat-label>Url</mat-label>
-                                    <input matInput name="url"
-                                           placeholder="site.com" type="url">
-                                </mat-form-field>
-                            </td>
-                        </tr>
+    <mat-accordion class="example-headers-align" multi>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Personal data
+          </mat-panel-title>
+          <mat-panel-description>
+            Type your name and age
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <form>
+          <table class="full-width">
+            <tr>
+              <td>
+                <mat-form-field class="full-width">
+                  <mat-label>Job title</mat-label>
+                  <input matInput name="job-title" placeholder="Engineer" type="text">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="full-width">
+                  <mat-label>Employer</mat-label>
+                  <input matInput name="employer"
+                         placeholder="Nasa" type="text">
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="full-width">
+                  <mat-label>Url</mat-label>
+                  <input matInput name="url"
+                         placeholder="site.com" type="url">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="full-width">
+                  <mat-label>Country</mat-label>
+                  <mat-select [(ngModel)]="user.country.id" name="user-country">
+                    <mat-option *ngFor="let country of countries" [value]="country.id">
+                      {{country.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr);">
+                <mat-form-field >
+                  <mat-label>Month and Year</mat-label>
+                  <input [formControl]="date" [matDatepicker]="dp" matInput>
+                  <mat-hint>MM/YYYY</mat-hint>
+                  <mat-datepicker-toggle [for]="dp" matIconSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #dp
+                                  (monthSelected)="setMonthAndYear($event, dp)"
+                                  panelClass="example-month-picker"
+                                  startView="multi-year">
+                  </mat-datepicker>
+                </mat-form-field>
+                <mat-form-field >
+                  <mat-label>Month and Year</mat-label>
+                  <input [formControl]="date" [matDatepicker]="dp2" matInput>
+                  <mat-hint>MM/YYYY</mat-hint>
+                  <mat-datepicker-toggle [for]="dp2" matIconSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #dp2
+                                  (monthSelected)="setMonthAndYear($event, dp2)"
+                                  panelClass="example-month-picker"
+                                  startView="multi-year">
+                  </mat-datepicker>
+                </mat-form-field>
+                </div>
+              </td>
+
+            </tr>
 
 
-                    </table>
-                </form>
+          </table>
+          <div class="content" role="main">
+            <ckeditor
+              (change)="onChange($event)"
+              (ready)="onReady($event)"
+              [editor]="Editor"
+              data="<h1>Hello from CKEditor 5!</h1><h2>Check the inspector below</h2><ul><li>Check the Model</li><li>See the View</li><li>Check available commands</li></ul>"
+            >
+            </ckeditor>
+          </div>
 
-            </mat-expansion-panel>
-        </mat-accordion>
+        </form>
 
-    </mat-card-content>
+      </mat-expansion-panel>
+    </mat-accordion>
+    </div>
+  </mat-card-content>
 </mat-card>
